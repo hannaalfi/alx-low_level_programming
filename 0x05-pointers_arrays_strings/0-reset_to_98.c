@@ -1,30 +1,19 @@
-#include "main.h"
+#include <stdio.h>
+
+void reset_to_98(int *);
 
 /**
- * _strcat - concatenates two strings
- * @dest: string to append to
- * @src: string to add
+ * main - check the code for Holberton School students.
  *
- * Return: a pointer to the resulting string
+ * Return: Always 0.
  */
-char *_strcat(char *dest, char *src)
+int main(void)
 {
-	int i, j;
+	int n;
 
-	i = 0;
-	j = 0;
-
-	while (dest[i] != '\0')
-		i++;
-
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		j++;
-		i++;
-	}
-
-	dest[i] = '\0';
-
-	return (dest);
+	n = 402;
+	printf("%d\n", n);
+	reset_to_98(&n);
+	printf("%d\n", n);
+	return (0);
 }
