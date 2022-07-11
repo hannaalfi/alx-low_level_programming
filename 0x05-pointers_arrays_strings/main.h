@@ -2,7 +2,7 @@
 #define FILE_HOLBERTON
 
 void reset_to_98(int *);
-char *_strcat(char *dest, char *src);
+void swap_int(int *, int *);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 int _strcmp(char *s1, char *s2);
