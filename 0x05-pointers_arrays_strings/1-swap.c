@@ -1,31 +1,21 @@
-#include "main.h"
+#include <stdio.h>
+
+void swap_int(int *, int *);
 
 /**
- * _strncat - concatenates n bytes from a string to another
- * @dest: destination string
- * @src: source string
- * @n: number of bytes of str to concatenate
+ * main - check the code for Holberton School students.
  *
- * Return: a pointer to the resulting string dest
+ * Return: Always 0.
  */
-char *_strncat(char *dest, char *src, int n)
+int main(void)
 {
-	int i, j;
+	int a;
+	int b;
 
-	i = 0;
-	j = 0;
-
-	while (dest[i] != '\0')
-		i++;
-
-	while (src[j] != '\0' && j < n)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-
-	dest[i] = '\0';
-
-	return (dest);
+	a = 98;
+	b = 42;
+	printf("%d, %d\n", a, b);
+	swap_int(&a, &b);
+	printf("%d, %d\n", a, b);
+	return (0);
 }
