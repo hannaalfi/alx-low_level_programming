@@ -1,7 +1,7 @@
 #ifndef FILE_HOLBERTON
 #define FILE_HOLBERTON
 
-int _putchar(char c);
+int _putchar(0-reset_to_98.c;
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
