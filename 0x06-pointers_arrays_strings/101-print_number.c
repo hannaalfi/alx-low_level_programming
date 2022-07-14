@@ -1,45 +1,22 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_buffer - Prints a buffer 10 bytes at a time, starting with
- *                the byte position, then showing the hex content,
- *                then displaying printable charcaters.
- * @b: The buffer to be printed.
- * @size: The number of bytes to be printed from the buffer.
+ * print_number - Prints an integer.
+ * @n: The integer to be printed.
  */
 
-void print_buffer(char *b, int size)
+void print_number(int n)
 {
-	int byte, index;
+	unsigned int num = n;
 
-	for (byte = 0; byte < size; byte += 10)
+	if (n < 0)
 	{
-		printf("%08x: ", byte);
-
-		for (index = 0; index < 10; index++)
-		{
-			if ((index + byte) >= size)
-				printf("  ");
-			else
-				printf("%02x", *(b + index + byte));
-			if ((index % 2) != 0 && index != 0)
-				printf(" ");
-		}
-		for (index = 0; index < 10; index++)
-		{
-			if ((index + byte) >= size)
-				break;
-			else if (*(b + index + byte) >= 31 &&
-				 *(b + index + byte) <= 126)
-				printf("%c", *(b + index + byte));
-			else
-				printf(".");
-		}
-		if (byte >= size)
-			continue;
-		printf("\n");
+		_putchar('-');
+		num = -num;
 	}
-	if (size <= 0)
-		printf("\n");
+
+	if ((num / 10) > 0)
+		print_number(num / 10);
+
+	_putchar((num % 10) + '0');
 }
