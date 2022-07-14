@@ -1,43 +1,45 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
-* get_scale - function that convert a string to an integer.
-* @n: int
-* Return: int
-*/
-int get_scale(int n)
+ * print_buffer - Prints a buffer 10 bytes at a time, starting with
+ *                the byte position, then showing the hex content,
+ *                then displaying printable charcaters.
+ * @b: The buffer to be printed.
+ * @size: The number of bytes to be printed from the buffer.
+ */
+
+void print_buffer(char *b, int size)
 {
-	if (n > 10)
-		return (10 * get_scale(n / 10));
-	else
-		return (1);
+	int byte, index;
 
-}
-/**
-* print_number - function that convert a string to an integer.
-* @n: string
-* Return: void
-*/
-void print_number(int n)
-{
-	int scale, unit;
-
-	if (n < 0)
+	for (byte = 0; byte < size; byte += 10)
 	{
-		n *= -1;
-		_putchar('-');
-	}
+		printf("%08x: ", byte);
 
-	for (scale = get_scale(n); scale >= 10; scale /= 10)
-	{
-		unit = (n / scale);
-		if (unit > 9)
+		for (index = 0; index < 10; index++)
 		{
-			_putchar('0' + (unit / 10));
-			unit = unit % 10;
+			if ((index + byte) >= size)
+				printf("  ");
+			else
+				printf("%02x", *(b + index + byte));
+			if ((index % 2) != 0 && index != 0)
+				printf(" ");
 		}
-		_putchar('0' + unit);
-		n = n % scale;
+		for (index = 0; index < 10; index++)
+		{
+			if ((index + byte) >= size)
+				break;
+			else if (*(b + index + byte) >= 31 &&
+				 *(b + index + byte) <= 126)
+				printf("%c", *(b + index + byte));
+			else
+				printf(".");
+		}
+		if (byte >= size)
+			continue;
+		printf("\n");
 	}
-	_putchar('0' + (n / scale));
+	if (size <= 0)
+		printf("\n");
 }
